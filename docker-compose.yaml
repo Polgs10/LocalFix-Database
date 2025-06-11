@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  db:
+    container_name: "local_fix_database"
+    image: "postgis/postgis:16-3.4"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "postgres"
+    volumes:
+      - "./db:/var/lib/postgresql/data"
+    restart: "always"
